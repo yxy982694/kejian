@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>7-2阴影</title>
+	<style type="text/css">
+		.myCanvas{
+			border:2px solid red;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="myCanvas" class="myCanvas" width="600px" height="400px">
+		您的浏览器不支持canvas
+	</canvas>
+	<script>
+		var canvas=document.getElementById("myCanvas");
+		var ctx=canvas.getContext("2d");
+		ctx.shadowOffsetX=-5;
+		ctx.shadowOffsetY=-2;
+		ctx.shadowColor='rgba(255,215,0,.7)';
+		ctx.shadowBlur=20;
+		// ctx.fillRect(100,100,200,200);
+		// ctx.font="20px 楷书";
+		// ctx.fillText("文本",20,20);
+		ctx.fillStyle="rgb(255,69,0)";
+		ctx.arc(200,200,50,0,2*Math.PI,true);
+		ctx.fill();
+
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>6-8图形画刷</title>
+	<style type="text/css">
+		.myCanvas{
+			border:2px solid red;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="myCanvas" class="myCanvas" width="600px" height="400px">
+		您的浏览器不支持canvas
+	</canvas>
+	<script>
+		var canvas=document.getElementById("myCanvas");
+		var ctx=canvas.getContext("2d");
+
+		ctx.fillStyle="#000";
+		ctx.fillRect(0,0,canvas.width,canvas.height);
+		var img=new Image();
+		img.src="logo.png";
+		img.onload=function(){
+			var pattern=ctx.createPattern(img,"no-repeat");
+			ctx.fillStyle=pattern;
+			ctx.fillRect(0,0,canvas.width,canvas.height);
+		}
+
+
+
+
+	</script>
+</body>
+</html>

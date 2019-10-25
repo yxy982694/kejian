@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>9-1离屏技术</title>
+	<style type="text/css">
+		.myCanvas{
+			border:2px solid red;
+			background:#abcdef;
+		}
+		.myCanvas2{
+			display:none;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="myCanvas" class="myCanvas" width="600px" height="400px">
+		您的浏览器不支持canvas
+	</canvas>
+	<canvas id="myCanvas2" class="myCanvas2" width="600px" height="400px">
+		您的浏览器不支持canvas
+	</canvas>
+	<script>
+		var canvas=document.getElementById("myCanvas");
+		var ctx=canvas.getContext("2d");
+		
+		var canvas2=document.getElementById("myCanvas2");
+		var ctx2=canvas2.getContext("2d");
+
+		var posx=0,posy=0,dir=1,isMouseInRect=false;
+
+
+		var drawAlot=function(){
+			for(var i=0;i<canvas2.width;i+=10){
+				for(var j=0;j<canvas2.height;j+=10){
+					ctx2.beginPath();
+					ctx2.arc(i,j,5,0,2*Math.PI,true);
+					ctx2.stroke();
+				}
+			}
+		}
+		drawAlot();
+		canvas.onmousemove=function(e){
+			var mouseX=e.pageX;
+			var mouseY=e.pageY;
+			if(mouseX>posx&&mouseX<posx+50&&mouseY>0&&mouseY<50){
+				isMouseInRect=true;
+			}else{
+				isMouseInRect=false;
+			}
+		}
+		setInterval(function(){
+			if(!isMouseInRect){
+				posx+=10*dir;
+			}
+			ctx.clearRect(0,0,canvas.width,canvas.height);
+			ctx.drawImage(canvas2,0,0,canvas2.width,canvas2.height,0,0,canvas.width,canvas.height);
+			if(posx==canvas.width-50){
+				dir=-1;
+			}else if(posx==0){
+				dir=1;
+			}
+			ctx.fillRect(posx,posy,50,50);
+		},100);
+		
+		
+
+
+		
+		
+	
+
+
+
+		
+	</script>
+</body>
+</html>

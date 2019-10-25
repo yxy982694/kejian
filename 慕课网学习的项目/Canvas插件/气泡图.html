@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2-17气泡图</title>
+    <script src="Chart.js"></script>
+    <style type="text/css">
+        #myChart{
+    
+        }
+        h3{
+            width:300px;
+            text-align:center;
+            margin:20px auto;
+        }
+    </style>
+</head>
+<body>
+<!--     <h3>2017年运势表</h3> -->
+<canvas id="myChart" width="600px" height="400px"></canvas>
+<script>
+    var ctx = document.getElementById("myChart").getContext("2d");
+
+var data = {
+        datasets: [
+            {
+                label: '第一个气泡',
+                data: [
+                    {
+                        x: 10,
+                        y: 70,
+                        r: 15
+                    },
+                    {
+                        x: 80,
+                        y: 10,
+                        r: 10
+                    },
+                    {
+                        x: 30,
+                        y: 20,
+                        r: 10
+                    }
+                ],
+                backgroundColor:"#FF6384",
+                hoverBackgroundColor: "#FF6384",
+            }]
+    };
+  
+    
+    var options={};
+   var myChart=new Chart(ctx,{
+    type:"bubble",
+    data:data,
+    options:options
+   });
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2-13饼状图</title>
+    <script src="Chart.js"></script>
+    <style type="text/css">
+        #myChart{
+    
+        }
+        h3{
+            width:300px;
+            text-align:center;
+            margin:20px auto;
+        }
+    </style>
+</head>
+<body>
+<!--     <h3>2017年运势表</h3> -->
+<canvas id="myChart" width="600px" height="400px"></canvas>
+<script>
+    var ctx = document.getElementById("myChart").getContext("2d");
+
+
+    var data = {
+        labels: [
+            "Red",
+            "Blue",
+            "Yellow"
+        ],
+        datasets: [
+            {
+                data: [300, 50, 100],
+                backgroundColor: [
+                    "#FF6384",
+                    "#36A2EB",
+                    "#FFCE56"
+                ],
+                hoverBackgroundColor: [
+                    "red",
+                    "#36A2EB",
+                    "#FFCE56"
+                ]
+            }]
+    };
+    
+    var options={};
+   // var myChart=new Chart(ctx,{
+   //  type:"pie",
+   //  data:data,
+   //  options:options
+   // });
+   var myChart=new Chart(ctx,{
+    type:"doughnut",
+    data:data,
+    options:options
+   });
+    
+</script>
+</body>
+</html>

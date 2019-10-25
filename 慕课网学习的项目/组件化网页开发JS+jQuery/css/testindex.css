@@ -1,0 +1,234 @@
+/*nav-site顶部导航部分*/
+.nav-site{
+	width:100%;
+	background-color:#f3f5f7;
+	z-index:9;
+	position:relative;
+}
+.nav-site .container{
+	height:44px;
+	line-height:44px;
+	border-bottom:1px solid #cdd0d4;
+}
+.nav-site-login{
+	color:#f01414;
+	margin-left:15px;
+}
+.nav-site-signup,
+.nav-site-mobile{
+	margin-left:10px;
+}
+.nav-site-category{
+	margin:0 10px;
+}
+.nav-site-service{
+	margin-right:15px;
+}
+
+/*header*/
+.header{
+	width:100%;
+	height:124px;
+	background-color:#f3f5f7;
+	z-index:3;
+	position:relative;
+}
+.header-logo,
+.header .search,
+.header .cart{
+	margin-top:36px;
+}
+.header-logo{
+	display:block;
+	width:136px;
+	height:48px;
+	background:url('../img/header-logo.png') no-repeat;
+	margin-left:15px;
+}
+.header .search{
+	margin-left:145px ;
+}
+.header .cart{
+	width:150px;
+	height:40px;
+	background-color:red;
+	line-height:40px;
+	text-align:center;
+	padding:0;
+}
+.header .cart a{
+	color:#fff;
+	padding:0;
+}
+.header .cart a i,
+.header .cart a span{
+	display:inline-block;
+	height: 20px;
+	line-height:20px;
+}
+.header .cart a .icon-gouwuche{
+	margin:0;
+	padding:0;
+}
+.header .cart a .gouwuchewenzi{
+	border-right:1px solid #fff;
+	padding:0 10px;
+	margin-right:10px;
+}
+.header .cart-active{
+	border:1px solid #cdd0d4;
+}
+.header .cart-active a{
+	color:red;
+}
+.header .cart-active a .gouwuchewenzi{
+	border-right:1px solid red;
+}
+.header .cart a .icon-xiala{
+	margin-right:0px;
+}
+.cart .dropdown-toggle{
+		display:block;
+		height:100%;
+		padding:0 16px 0 12px;
+}
+.cart .dropdown-arrow{
+	margin-left:8px;
+}
+.cart .dropdown-layer{
+	top:98%;
+	background-color:#fff;
+	border:1px solid #cdd0d4;
+	z-index:0;
+	overflow:hidden;
+}
+.cart-item{
+	display:block;
+	height:30px;
+	line-height:30px;
+	color:#4d555d;
+	white-space:nowrap;
+	padding:0 12px;
+}
+.cart-item:hover{
+	background-color:#f3f5f7;
+}
+/*顶部导航移入移出样式*/
+.cart-active .dropdown-toggle{
+	background-color:#fff;
+	border-color:#cdd0d4;
+}
+.cart-empty{
+	width:300px;
+	height:200px;
+	right:-1px;
+	display:flex;
+	align-items:center;
+}
+.empty{
+	font-size:40px;
+
+}
+.cart-empty div{
+	width:200px;
+	margin:0 auto;
+	position:relative;
+	height:100px;
+	text-align:left;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	overflow:hidden;
+}
+.cart-empty div span{
+	/*position:absolute;*/
+	display:inline-block;
+	width:58%;
+	line-height:20px;
+	margin-left:10px;
+}
+/*主导航nav-main*/
+.nav-main{
+	margin-bottom:8px;
+	width:100%;
+	height:48px;
+	background-color:#07111b;
+	text-indent:182px;
+}
+.nav-main .link{
+	color:#fff;
+	font-size:14px;
+	line-height:48px;
+	margin-left:50px;
+}
+/*focus*/
+.focus{
+	width:100%;
+	height:504px;
+	background-color:#fff;
+	margin-bottom:8px;
+}
+.focus-sidebar{
+	width:249px;
+}
+.focus-news{
+	padding:7px 20px 12px;
+	background:#fff;
+	border:1px solid #d9dde1;
+	border-bottom:none;
+}
+.focus-news-header{
+	height:38px;
+	line-height:38px;
+}
+.focus-news-header-title{
+	color:#f01414;
+	font-size:16px;
+}
+.focus-news-body{
+	line-height:28px;
+}
+.focus-service{
+	background-color:#fff;
+	border-left:1px solid #d9dde1;
+}
+.focus-service-item{
+	width:61px;
+	height:71px;
+	text-align:center;
+	border-top:1px solid #d9dde1;
+	border-right:1px solid #d9dde1;
+}
+.focus-service .icon,
+.focus-service-text{
+	display:inline-block;
+	width:100%;
+}
+.focus-service .icon{
+	margin-top:17px;
+	color:#f67272;
+	font-size:22px;
+}
+.focus-service-text{
+	margin-top:6px;
+	color:#4d555d;
+}
+.focus-ad{
+	width:100%;
+	height:90px;
+	background:url('../img/focus-ad.png') no-repeat;
+}
+.focus .slider{
+	margin-left:8px;
+}
+body{
+	height:1700px;
+}
+/*todays*/
+.todays .slider{
+	width:100%;
+	height:158px;
+}
+.todays .slider-img{
+	width:238px;
+}

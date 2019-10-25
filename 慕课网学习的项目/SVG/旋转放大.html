@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3-7SVG旋转放大</title>
+  <style type="text/css">
+    text:hover{
+      cursor:pointer;
+    }
+  </style>
+</head>
+<body>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg" style="border:4px solid red" id
+="svg">
+  <text font-family="microsoft yahei" font-size="40px" y="200" x="400" rotate="0">慕
+        <animate attributeName="rotate" from="0" to="360" begin="0s" dur="10s" repeatCount="indefinite" accumulate="sum"/>
+        <animate attributeName="font-size" to="80px" begin="0s" dur="10s" repeatCount="indefinite" accumulate="sum"/>
+    </text>
+</svg>
+<script>
+   var svg=document.getElementById("svg");
+   var ismove=true;
+   svg.onclick=function(){
+    if(ismove){
+      ismove=false;
+      svg.pauseAnimations();
+    }else{
+      svg.unpauseAnimations();
+      ismove=true;
+    }
+   }
+
+</script>
+</body>
+</html>

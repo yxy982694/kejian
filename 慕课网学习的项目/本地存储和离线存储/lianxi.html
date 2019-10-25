@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>html5数据库--练习</title>
+</head>
+<body>
+	<button onclick="addData()">添加数据</button>
+	<button onclick="getData('001')">获取指定数据</button>
+	<button onclick="getAllData()">获取全部数据</button>
+	<button onclick="put('001')">修改数据</button>
+	<button onclick="deletes('001')">删除数据</button>
+	<button onclick="clears()">清除数据</button>
+	<button onclick="useIndexGetData()">通过数组索引获得数据</button>
+	<button onclick="useIDGetData()">通过ID索引获得数据</button>
+	<button onclick="useCursorGetData()">通过游标获得数据</button>
+	<button onclick="useIndexAndCursorGetData()">通过索引和游标操作数据</button>
+	<button onclick="useIndexAndCursorGetData11()">通过索引范围和游标操作数据</button>
+	<script>
+		var db=window.indexedDB||window.mozIndexedDB||window.webkitIndexedDB||window.msIndexedDB;
+		var btn=document.getElementById('btn');
+		var dbName='testDB1';
+		var osName='os1';
+		var shujuku;
+		var request=db.open(dbName,1);
+		request.onsuccess=function(){
+			shujuku=request.result;
+			console.log("成功打开数据库");
+		}
+		request.onupgradeneeded=function(e){
+			shujuku = e.target.result;
+			var store=null;
+			if(!shujuku.objectStoreNames.contains(osName)){
+				store=shujuku.createObjectStore(osName,{keyPath:'id'});
+				store.createIndex('idIndex','id',{unique:true});
+				store.createIndex('arrIndex','category',{multiEntry:true});
+				store.createIndex('hpIndex','hp', {unique: false});
+			}
+		}
+		var data=[{
+			name:'史莱姆',
+			id:'001',
+			hp:3,
+			category:['怪物','容易逃跑']
+		},{
+			name:'小蝙蝠',
+			id:'002',
+			hp:5,
+			category:['怪物','飞行']
+		},{
+			name:'小恶魔',
+			id:'003',
+			hp:9,
+			category:['怪物','恶魔']
+		}];
+		function addData(){
+			var transaction=shujuku.transaction(osName,'readwrite');
+			var store=transaction.objectStore(osName);
+			data.map(function(o){
+				store.add(o);
+			});
+		}
+		function getData(id){
+			var transaction=shujuku.transaction(osName,'readwrite');
+			var store=transaction.objectStore(osName);	
+			console.log(store);	
+			var index=store.index('arrIndex');
+			console.log(index);	
+			var request=store.get(id);
+			request.onsuccess=function(){
+				console.log(request.result);
+			}
+		}
+		//通过数组索引得到数据
+		function useIndexGetData(){
+			var transaction=shujuku.transaction(osName,'readwrite');
+			var store=transaction.objectStore(osName);
+			var index=store.index('arrIndex');
+			var request=index.getAll('怪物');
+			request.onsuccess=function(){
+				console.log(request.result);
+			}
+		}
+		//通过ID索引得到数据
+		function useIDGetData(){
+			var transaction=shujuku.transaction(osName,'readwrite');
+			var store=transaction.objectStore(osName);
+			var index=store.index('idIndex');
+			var request=index.get('002');
+			request.onsuccess=function(){
+				console.log(request.result);
+			}
+		}
+		function getAllData(){
+			var transaction=shujuku.transaction(osName,'readwrite');
+			var store=transaction.objectStore(osName);		
+			var request=store.getAll();
+			request.onsuccess=function(){
+				console.log(request.result);
+			}
+		}
+	function put(id){
+		var transaction=shujuku.transaction(osName,'readwrite');
+		var store=transaction.objectStore(osName);
+		var request=store.get(id);
+		request.onsuccess=function(){
+			request=store.put({
+				name:'小企鹅',
+				id:id,
+				hp:5
+			});
+		}
+	}
+	function deletes(id){
+		var transaction=shujuku.transaction(osName,'readwrite');
+		var store=transaction.objectStore(osName);
+		var request=store.delete(id);		
+		request.onsuccess=function(){
+			console.log("删除成功！！");
+		}
+	}
+	function clears(){
+		var transaction=shujuku.transaction(osName,'readwrite');
+		var store=transaction.objectStore(osName);		
+		var request=store.clear();		
+		request.onsuccess=function(){
+			console.log("清除成功！！");
+		}
+	}
+	function useCursorGetData(){
+		var transaction=shujuku.transaction(osName,'readwrite');
+		var store=transaction.objectStore(osName);	
+		// var request=store.openCursor(IDBKeyRange.only('002'));
+		var request=store.openCursor(null,'prev');
+		request.onsuccess=function(){
+			var cursor=request.result;
+			if(cursor){
+				console.log(cursor.value);
+				cursor.continue();
+			}
+		}
+	}
+	function useIndexAndCursorGetData(){
+		var transaction=shujuku.transaction(osName,'readwrite');
+		var store=transaction.objectStore(osName);
+		var index=store.index('arrIndex');
+		var request=index.openCursor();
+		request.onsuccess=function(){
+			var cursor=request.result;
+			if(cursor){
+				console.log(cursor.value);
+				cursor.continue();
+			}
+		}
+	}
+	function useIndexAndCursorGetData11(){
+		var transaction=shujuku.transaction(osName,'readwrite');
+		var store=transaction.objectStore(osName);
+		var index=store.index('hpIndex');
+		// var request=index.openCursor(IDBKeyRange.bound(5,10));
+		var request1=index.openCursor(IDBKeyRange.bound(1,10));
+		request1.onsuccess=function(){
+			// var cursor=request.result;
+			var cursor1=request1.result;
+			// var value=null;
+			var value1=null;
+			if(cursor1){
+				value1=cursor1.value;
+				value1.hp-=10;
+				cursor1.update(value1);
+				cursor1.continue();
+			}
+			// if(cursor){
+			// 	value=cursor.value;
+			// 	value.hp+=10;
+			// 	cursor.update(value);
+			// 	cursor.continue();
+			// }
+		}
+	}
+	</script>
+</body>
+</html>

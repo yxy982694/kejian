@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2-4创建折线图</title>
+    <script src="Chart.js"></script>
+    <style type="text/css">
+        #myChart{
+            font-size:20px;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myChart" width="600px" height="400px"></canvas>
+<script>
+    var ctx = document.getElementById("myChart").getContext("2d");
+
+    var yuefen= ["第一个月", "第二个月", "第三个月", "第四个月", "第五个月", "第六个月", "第七个月","第八个月", "第九个月", "第十个月", "第十一个月", "第十二个月"];
+    var data={
+        // 设置图表中水平轴显示的内容
+        labels:yuefen,
+        // 设置图表中的数据
+        datasets: [
+            {
+                // 当前图表数据的标题内容
+                label: "小白入门课程",
+                // 是否填充折线与水平轴中间的区域
+                fill: false,
+                // 设置折线数据点的贝塞尔曲线值（值为0时为折线）
+                lineTension: 0.1,
+                cubicInterpolationMode:"fdf",
+                // 设置边框颜色
+                borderColor: "rgba(75,192,192,1)",
+                // 设置折线端点的样式
+                borderCapStyle: 'round',
+                // 破折号的长度和间距
+                borderDash: [],
+                // 破折号的偏移量
+                borderDashOffset: 0.0,
+                // 设置折线交点的样式
+                borderJoinStyle: 'miter',
+                // 设置折线数据点的边框颜色
+                pointBorderColor: "blue",
+                // 设置折线数据点的背景颜色
+                pointBackgroundColor: "#abcdef",
+                // 设置折线数据点的边框宽度
+                pointBorderWidth: 1,
+                // 设置当鼠标悬停折线数据点时的半径
+                pointHoverRadius: 10,
+                // 设置当鼠标悬停折线数据点时的背景颜色
+                pointHoverBackgroundColor: "orange",
+                // 设置当鼠标悬停折线数据点时的边框颜色
+                pointHoverBorderColor: "red",
+                // 设置当鼠标悬停折线数据点时的边框宽度
+                pointHoverBorderWidth: 2,
+                // 设置折线数据点的半径
+                pointRadius: 3,
+                //
+                pointHitRadius: 10,
+                // 设置折线中所有的数据
+                data: [70, 50, 85, 95, 25, 65, 38,67,30,78,5,100],
+                // 如果设置为true，将在没有数据或空数据的点之间绘制直线
+                spanGaps: true
+            },{
+                // 当前图表数据的标题内容
+                label: "从H5到移动响应式开发",
+                // 是否填充折线与水平轴中间的区域
+                fill:false,
+                // 设置折线数据点的贝塞尔曲线值（值为0时为折线）
+                lineTension: 0,
+                // 设置背景颜色
+                backgroundColor: "red",
+                // 设置边框颜色
+                borderColor: "red",
+                // 设置折线端点的样式
+                borderCapStyle: 'round',
+                // 破折号的长度和间距
+                borderDash: [],
+                // 破折号的偏移量
+                borderDashOffset: 0.0,
+                // 设置折线交点的样式
+                borderJoinStyle: 'bevel',
+                // 设置折线数据点的边框颜色
+                pointBorderColor: "red",
+                // 设置折线数据点的背景颜色
+                pointBackgroundColor: "#fff",
+                // 设置折线数据点的边框宽度
+                pointBorderWidth: 1,
+                // 设置当鼠标悬停折线数据点时的半径
+                pointHoverRadius: 10,
+                // 设置当鼠标悬停折线数据点时的背景颜色
+                pointHoverBackgroundColor: "blue",
+                // 设置当鼠标悬停折线数据点时的边框颜色
+                pointHoverBorderColor: "black",
+                // 设置当鼠标悬停折线数据点时的边框宽度
+                pointHoverBorderWidth: 5,
+                // 设置折线数据点的半径
+                pointRadius: 3,
+                //
+                pointHitRadius: 10,
+                // 设置折线中所有的数据
+                data: [50, 80, 45, 25, 55, 85, 38,85,60,48,68,90],
+                // 如果设置为true，将在没有数据或空数据的点之间绘制直线
+                spanGaps: true,
+            }
+
+        ]
+    };
+    var options = {};
+     var myBarChart = new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: options
+    });
+    
+</script>
+</body>
+</html>

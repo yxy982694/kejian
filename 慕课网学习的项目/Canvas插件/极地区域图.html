@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2-11极地区域图</title>
+    <script src="Chart.js"></script>
+    <style type="text/css">
+        #myChart{
+    
+        }
+        h3{
+            width:300px;
+            text-align:center;
+            margin:20px auto;
+        }
+    </style>
+</head>
+<body>
+<!--     <h3>2017年运势表</h3> -->
+<canvas id="myChart" width="600px" height="400px"></canvas>
+<script>
+    var ctx = document.getElementById("myChart").getContext("2d");
+
+
+ var data = {
+        datasets: [{
+            data: [
+                11,
+                16,
+                7,
+                3,
+                14
+            ],
+            
+            backgroundColor: [
+                "#FF6384",
+                "#4BC0C0",
+                "yellow"
+            ],
+
+            label: '我的极地区域图2' // for legend
+        }],
+        labels: [
+            "Red",
+            "Green",
+            "Yellow",
+            "Grey",
+            "Blue"
+        ]
+    };
+    
+    var options={};
+   var myChart=new Chart(ctx,{
+    type:"pie",
+    data:data,
+    options:options
+   });
+    
+</script>
+</body>
+</html>

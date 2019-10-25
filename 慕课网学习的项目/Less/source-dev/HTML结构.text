@@ -1,0 +1,10 @@
+
+header.header>.logo+nav.nav>a.-item{课程}+a.-item.-item_icon_new{职业路径}+a.-item{实战}+a.-item{猿问}+a.-item{手记}^.profile>a.-item.-phone+a.-item.-message+a.-item.-mail+a.-item.-ava^.search>input.-input+a.-submit|bem
+
+.banner>.caption>span.-text{一条通往有前途}+img[src=imgs/qiantu.png]++span.-text{的职业路径}^.tips>.-item.-item_i_1>.-title{更精简}+.-text{只学必要内容}^+.-item_i_2>.-title{更聚焦}+.text{专注特定领域}^+.-item_i_3>.-title{更贴心}+.text{全程助教跟踪}|bem
+
+.recommend>.recommend-course>.-cover>img[src=imgs/b1.jpg]^+.-plan+>h2.caption{HTML5与CSS3实现动态网页}+.-times{24课}>span.-preson{106人在学}^+.-desc{HTML5动态网页带你走进前端的世界！}^.-price>i{¥}+{399.00}|bem
+
+.courses>(.-header>a.-item{全部}+a.-item{前端开发}+a.-item{后端开发}+a.-item{移动开发}+a.-item{数据库}+a.-item{运维&测试})>.-list>(.standard-course>.-cover>img[src=imgs/s$.jpg]^+.-plan>.-caption{SSH框架探幽}+.-category{Spring / Struts2 / Hibernate}+.-times{11课}>span.-preson{792人学习})*10^+>.pagination>a.-page_status_disabled{首页}+a.-page_status_disabled{上一页}+a.-number.-page_status_current{1}.-page_i_1+(a.-number.-page_i_$@2{$@2})*4+a.-page{下一页}+a.-page{尾页}|bem
+
+footer.footer>.footer-link>a.-item{网站首页}+a.-item{企业合作}+a.-item{人才招聘}+a.-item{联系我们}+a.-item{讲师招募}+a.-item{常见问题}+a.-item{意见反馈}+a.-item{慕课大学}+a.-item{友情链接}^>.footer-copy{Copyright © 2016 imooc.com All Rights Reserved | 京ICP备 13046642号-2}+.footer-share>a.-item_i_1+a.-item_i_2+a.-item_i_3|bem

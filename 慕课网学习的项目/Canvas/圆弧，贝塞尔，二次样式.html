@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>7-5圆弧，贝塞尔，二次样式</title>
+	<style type="text/css">
+		.myCanvas{
+			border:2px solid red;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="myCanvas" class="myCanvas" width="600px" height="400px">
+		您的浏览器不支持canvas
+	</canvas>
+	<script>
+		var canvas=document.getElementById("myCanvas");
+		var ctx=canvas.getContext("2d");
+		
+		ctx.arc(100,100,50,0,Math.PI/2,true);
+		ctx.fill();
+		ctx.stroke();
+		ctx.beginPath();
+		ctx.moveTo(100,150);
+		ctx.quadraticCurveTo(600,200,500,400);
+		ctx.fill();
+
+
+
+
+	</script>
+</body>
+</html>

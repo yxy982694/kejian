@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4-8时钟练习</title>
+	<style type="text/css">
+		.myCanvas{
+			border:2px solid red;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="myCanvas" class="myCanvas" width="600px" height="400px">
+		您的浏览器不支持canvas
+	</canvas>
+	<script>
+		var canvas=document.getElementById("myCanvas");
+		var ctx=canvas.getContext("2d");
+		ctx.save();
+		ctx.translate(200,30);
+		ctx.rotate(Math.PI/3);
+		ctx.scale(0.5,0.5);
+		ctx.fillStyle="yellow";
+		ctx.fillRect(100,100,200,300);
+		ctx.restore();
+		ctx.beginPath();
+		ctx.moveTo(200,200);
+		ctx.lineTo(300,300);
+		ctx.stroke();
+		ctx.translate(430,120);
+		ctx.beginPath();
+		ctx.strokeStyle="blue";
+		ctx.lineWidth=5;
+		ctx.arc(0,0,100,0,2*Math.PI,true);
+		ctx.stroke();
+		ctx.beginPath();
+		ctx.strokeStyle="red";
+		ctx.lineWidth=4;
+		for(var i=0;i<4;i++){
+			ctx.moveTo(70,0);
+			ctx.lineTo(100,0);
+			ctx.rotate(Math.PI/2);
+		}
+		ctx.stroke();
+		ctx.beginPath();
+		ctx.strokeStyle="#f60";
+		ctx.lineWidth=1;
+		ctx.moveTo(0,0);
+		ctx.lineTo(60,0);
+		ctx.moveTo(0,0);
+		ctx.lineTo(0,-60);
+		ctx.stroke();
+	</script>
+</body>
+</html>

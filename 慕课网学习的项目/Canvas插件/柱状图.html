@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2-7柱状图</title>
+    <script src="Chart.js"></script>
+    <style type="text/css">
+        #myChart{
+            font-size:20px;
+        }
+        h3{
+            margin:20px auto;
+            width:300px;
+        }
+    </style>
+</head>
+<body>
+    <h3>2017年上半年web前端收入比例</h3>
+<canvas id="myChart" width="600px" height="400px"></canvas>
+<script>
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var data={
+    labels: ["北京", "上海", "广东", "深圳", "天津", "广州", "济南"],
+    datasets: [
+            {
+              label: "第一季度",
+              backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+              borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+              borderWidth: 4,
+              data: [65, 59, 60, 71, 56, 55, 50]
+            },{
+              label: "第二季度",
+              backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+              borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+              borderWidth: 4,
+              data: [95, 49, 40, 20, 25, 28]
+            }
+        ]
+    };
+    var options={};
+    var myChart=new Chart(ctx,{
+        type:"bar",
+        data:data,
+        options:options
+    });
+    
+</script>
+</body>
+</html>

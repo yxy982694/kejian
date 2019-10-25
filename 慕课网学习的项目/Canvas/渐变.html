@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5-1渐变</title>
+	<style type="text/css">
+		.myCanvas{
+			border:2px solid red;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="myCanvas" class="myCanvas" width="600px" height="400px">
+		您的浏览器不支持canvas
+	</canvas>
+	<script>
+		var canvas=document.getElementById("myCanvas");
+		var ctx=canvas.getContext("2d");
+		
+		var radialGradient=ctx.createRadialGradient(300,200,0,200,200,100);
+		radialGradient.addColorStop(0,'rgba(255,255,255,.7)');
+        radialGradient.addColorStop(0.2,'rgba(255,0,0,.8)');
+        radialGradient.addColorStop(0.8,'rgba(255,255,255,.5)');
+        radialGradient.addColorStop(1,'gray');
+   	 	ctx.fillStyle=radialGradient;
+		ctx.arc(200,200,100,0,2*Math.PI,true);
+		ctx.fill();
+		// var linearGradient=ctx.createLinearGradient(0,0,100,100);
+		// linearGradient.addColorStop(0,"yellow");
+  //  	 	linearGradient.addColorStop(0.5,"pink");
+  //   	linearGradient.addColorStop(0.8,"lightblue");
+		// ctx.fillStyle=linearGradient;
+		// ctx.beginPath();
+		// ctx.arc(50,50,50,0,2*Math.PI,true);
+		// ctx.fill();
+		// var radialGradient=ctx.createRadialGradient(400,150,0,400,150,100);
+		// radialGradient.addColorStop(0,"#ff1100");
+		// radialGradient.addColorStop(0.1,"#fff100");
+  //  	 	radialGradient.addColorStop(0.4,"#ffa819");
+  //  	 	radialGradient.addColorStop(0.6,"#ffbcb1");
+  //  	 	radialGradient.addColorStop(0.8,"#ffa608");
+  //  	 	radialGradient.addColorStop(1,"#ffb99e");
+  //  	 	ctx.beginPath();
+  //  	 	ctx.fillStyle=radialGradient;
+  //  	 	ctx.arc(400,150,100,0,2*Math.PI,true);
+  //  	 	ctx.fill();
+	</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+CACHE MANIFEST
+
+#VERSION 1.0
+
+CACHE:
+test.js
+test.jpg
+
+FALLBACK:
+
+NETWORK:
+*

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>9-2离屏技术练习</title>
+	<style type="text/css">
+		.myCanvas{
+			border:2px solid red;
+			background:#abcdef;
+		}
+		.myCanvas2{
+			display:none;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="myCanvas" class="myCanvas" width="600px" height="400px">
+		您的浏览器不支持canvas
+	</canvas>
+	<canvas id="myCanvas2" class="myCanvas2" width="600px" height="400px">
+		您的浏览器不支持canvas
+	</canvas>
+	<script>
+		var canvas=document.getElementById("myCanvas");
+		var ctx=canvas.getContext("2d");
+		
+		var canvas2=document.getElementById("myCanvas2");
+		var ctx2=canvas2.getContext("2d");
+
+
+		var img=new Image();
+		img.src="http://climg.mukewang.com/5aa6633400017bc704170220.jpg";
+		img.onload=function(){
+			ctx2.drawImage(img,0,0,canvas2.width,canvas2.height);
+			ctx.drawImage(canvas2,0,0,canvas2.width,canvas2.height,0,0,canvas.width,canvas.height);
+			ctx.font="50px Microsoft YaHei";
+			ctx.textAlign="center";
+			ctx.textBaseline="middle";
+			ctx.fillStyle="#fff";
+			ctx.fillText("==www.imooc.com=",300,300);
+		}
+
+
+		
+		
+		
+
+
+		
+		
+	
+
+
+
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>过期时间</title>
+</head>
+<body>
+
+
+	<script>
+		'use strict';
+		(function(){
+			var ls=window.localStorage;
+			// ls.setItem('name0','yuanxiaoyu0');
+			// ls.setItem('name1','yuanxiaoyu1');
+			// // console.log(ls.getItem('site'));
+			// console.log(ls.getItem('name0'));
+			// // ls.removeItem('name');
+			// console.log(ls.getItem(ls.key(0)));
+			// console.log(ls.key(0));
+			// var ss=window.sessionStorage;
+			// ss.setItem('ss1','zhangsan');
+			// ss.setItem('ss2','lisi');
+			// console.log(ss);
+			// console.log(ss.getItem('ss1'));
+			// ls.clear();
+			function oops(){
+				return console.warn('你的浏览器不支持这个LocalStorage API');
+			}
+			function getItem(key){
+				var data=ls.getItem(key);
+				data=JSON.parse(data)||{};
+				if(data.time===0){
+					return data.value;
+				}else if(Date.now()>data.time){
+					ls.removeItem(key);
+					return '';
+				}else{
+					return typeof data.value !=='undefined' ? data.value:'';
+				}
+			}
+			function setItem(key,value,time){
+				if(typeof key === 'undefined'){return}
+				var data={
+					time:time?Date.now()+time:0,
+					value:value
+				}
+				data=JSON.stringify(data);
+				try{
+					ls.setItem(key,data);
+				}catch(e){
+					ls.clear();
+					ls.setItem(key,data);
+				}
+			}
+
+
+			function removeItem(key){
+				ls.removeItem(key);
+			}
+			function clear(){
+				ls.clear();
+			}
+			window.cacheStorage={
+				getItem:ls?getItem:oops,
+				setItem:ls?setItem:oops,
+				removeItem:ls?removeItem:oops,
+				clear:ls?clear:clear,
+			}
+		})()
+	</script>
+</body>
+</html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+	<meta charset="UTF-8">
+	<title>慕淘网站点导航部分+logo和搜索框+商品分类+幻灯片+慕快报+今日推荐+楼层</title>
+	<link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<div class="nav-site">
+		<div class="container">
+			<ul class="fl">
+				<li class="fl"><a href="javascript:;" class="nav-site-login">亲，请登录</a></li>
+				<li class="fl"><a href="javascript:;" class="nav-site-signup link">免费注册</a></li>
+				<li class="fl"><a href="javascript:;" class="nav-site-mobile link">手机逛慕淘</a></li>
+			</ul>
+			<ul class="fr">
+				<li class="menu dropdown fl" data-active='menu'>
+					<a href="javascript:;" class="dropdown-toggle link">我的慕淘<i class="dropdown-arrow icon icon-xiala transition"></i></a>
+					<ul class="dropdown-layer dropdown-left">
+						<li><a href="#" target="_blank" class="menu-item">已买到的宝贝</a></li>
+						<li><a href="#" target="_blank" class="menu-item">我的足迹</a></li>
+					</ul>
+				</li>
+				<li class="menu dropdown fl" data-active='menu'>
+					<a href="javascript:;" class="dropdown-toggle link transition">收藏夹<i class="dropdown-arrow icon icon-xiala transition"></i></a>
+					<ul class="dropdown-layer dropdown-left">
+						<li><a href="#" target="_blank" class="menu-item">收藏的宝贝</a></li>
+						<li><a href="#" target="_blank" class="menu-item">收藏的店铺</a></li>
+					</ul>
+				</li>
+				<li class="fl"><a href="javascript:;" class="link nav-site-category transition" target="_blank">商品分类</a></li>
+				<li class="menu dropdown fl" data-active='menu' data-load="xiala/anxujiazai.json">
+					<a href="javascript:;" class="dropdown-toggle link transition">卖家中心<i class="dropdown-arrow icon icon-xiala transition"></i></a>
+					<ul class="dropdown-layer dropdown-left">
+						<li class="dropdown-loading"></li>
+						<!-- <li><a href="#" target="_blank" class="menu-item">免费开店</a></li>
+						<li><a href="#" target="_blank" class="menu-item">已卖出的宝贝</a></li>
+						<li><a href="#" target="_blank" class="menu-item">在出售的宝贝</a></li>
+						<li><a href="#" target="_blank" class="menu-item">卖家服务市场</a></li>
+						<li><a href="#" target="_blank" class="menu-item">卖家服务中心</a></li>
+						<li><a href="#" target="_blank" class="menu-item">体验中心</a></li> -->
+					</ul>
+				</li>
+				<li class="menu nav-site-service dropdown fl" data-active='menu'>
+					<a href="javascript:;" class="dropdown-toggle link transition">联系客服<i class="dropdown-arrow icon icon-xiala transition"></i></a>
+					<ul class="dropdown-layer dropdown-right">
+						<li><a href="#" target="_blank" class="menu-item">消费者服务</a></li>
+						<li><a href="#" target="_blank" class="menu-item">卖家服务</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="header">
+		<div class="container">
+			<h1 class="fl"><a href="./index.html" class="header-logo text-hidden">慕课网</a></h1>
+			<div class="search fl" id="header-search">
+				<form action="https://s.taobao.com/search" class="search-form">
+					<input type="text" name="q" placeholder="灵魂没事一元抢" autocomplete="off" class="search-inputbox fl"/>
+					<input type="submit" value="搜索" class="search-btn fl" />
+				</form>
+				<ul class="search-layer">
+				</ul>
+			</div>
+			<div class="cart fr">
+				<li class="dropdown" data-active='cart'>
+					<a href="javascript:;" class="dropdown-toggle link">
+						<i class="icon icon-gouwuche"></i>
+						<span class="gouwuchewenzi">购物车</span>
+						<span class="cart-num">0</span>
+						<i class="dropdown-arrow icon icon-xiala transition"></i>
+					</a>
+					<ul class="dropdown-layer cart-empty dropdown-right">
+						<div>
+							<i class="icon icon-gouwuche empty"></i>
+							<span>购物车里还没有商品赶紧去选购吧！</span>
+						</div>
+					</ul>
+					<ul class="dropdown-layer cart-you dropdown-right">
+					</ul>
+				</li>
+			</div>
+		</div>
+	</div>
+	<div class="nav-main">
+		<div class="container">
+			<a href="###" target="_blank" class="link">数码城</a
+			><a href="###" target="_blank" class="link">天黑黑</a
+			><a href="###" target="_blank" class="link">团购</a
+			><a href="###" target="_blank" class="link">发现</a
+			><a href="###" target="_blank" class="link">数码城二手特价</a
+			><a href="###" target="_blank" class="link">名品汇</a>
+		</div>
+	</div>
+	<div class="focus">
+		<div class="container">
+			<div class="category fl" id="focus-category">
+				<a href="###" target="_blank" class="category-title"><i class="icon icon-jiugongge"></i>商品分类</a>
+				<ul class="category-list">
+					<li class="dropdown" data-active='category' data-load='json/category-detail-1.json'>
+						<div class="dropdown-toggle">
+							<a href="###" target="_blank" class="dropdown-link">家用电器</a>
+							<i class="dropdown-arrow">&gt;</i>
+						</div>
+						<div class="dropdown-layer">
+							<div class="dropdown-loading"></div>
+						</div>
+					</li>
+					<li class="dropdown" data-active='category' data-load='json/category-detail-2.json'>
+						<div class="dropdown-toggle">
+							<a href="###" target="_blank" class="dropdown-link">手机</a>、<a href="###" target="_blank" class="dropdown-link">运营商</a>、<a href="###" target="_blank" class="dropdown-link">数码</a>
+							<i class="dropdown-arrow">&gt;</i>
+						</div>
+						<div class="dropdown-layer">
+							<div class="dropdown-loading"></div>
+						</div>
+					</li>
+					<li class="dropdown" data-active='category' data-load='json/category-detail-3.json'>
+						<div class="dropdown-toggle">
+							<a href="###" target="_blank" class="dropdown-link">家用电器</a>
+							<i class="dropdown-arrow">&gt;</i>
+						</div>
+						<div class="dropdown-layer">
+							<div class="dropdown-loading"></div>
+						</div>
+					</li>
+					<li class="dropdown" data-active='category' data-load='json/category-detail-4.json'>
+						<div class="dropdown-toggle">
+							<a href="###" target="_blank" class="dropdown-link">手机</a>、<a href="###" target="_blank" class="dropdown-link">运营商</a>、<a href="###" target="_blank" class="dropdown-link">数码</a>
+							<i class="dropdown-arrow">&gt;</i>
+						</div>
+						<div class="dropdown-layer">
+							<div class="dropdown-loading"></div>
+						</div>
+					</li>
+					<li class="dropdown" data-active='category' data-load='json/category-detail-5.json'>
+						<div class="dropdown-toggle">
+							<a href="###" target="_blank" class="dropdown-link">家用电器</a>
+							<i class="dropdown-arrow">&gt;</i>
+						</div>
+						<div class="dropdown-layer">
+							<div class="dropdown-loading"></div>
+						</div>
+					</li>
+					<li class="dropdown" data-active='category' data-load='json/category-detail-6.json'>
+						<div class="dropdown-toggle">
+							<a href="###" target="_blank" class="dropdown-link">手机</a>、<a href="###" target="_blank" class="dropdown-link">运营商</a>、<a href="###" target="_blank" class="dropdown-link">数码</a>
+							<i class="dropdown-arrow">&gt;</i>
+						</div>
+						<div class="dropdown-layer">
+							<div class="dropdown-loading"></div>
+						</div>
+					</li>
+					<li class="dropdown" data-active='category' data-load='json/category-detail-7.json'>
+						<div class="dropdown-toggle">
+							<a href="###" target="_blank" class="dropdown-link">家用电器</a>
+							<i class="dropdown-arrow">&gt;</i>
+						</div>
+						<div class="dropdown-layer">
+							<div class="dropdown-loading"></div>
+						</div>
+					</li>
+					<li class="dropdown" data-active='category' data-load='json/category-detail-8.json'>
+						<div class="dropdown-toggle">
+							<a href="###" target="_blank" class="dropdown-link">手机</a>、<a href="###" target="_blank" class="dropdown-link">运营商</a>、<a href="###" target="_blank" class="dropdown-link">数码</a>
+							<i class="dropdown-arrow">&gt;</i>
+						</div>
+						<div class="dropdown-layer">
+							<div class="dropdown-loading"></div>
+						</div>
+					</li>
+					<li class="dropdown" data-active='category' data-load='json/category-detail-9.json'>
+						<div class="dropdown-toggle">
+							<a href="###" target="_blank" class="dropdown-link">家用电器</a>
+							<i class="dropdown-arrow">&gt;</i>
+						</div>
+						<div class="dropdown-layer">
+							<div class="dropdown-loading"></div>
+						</div>
+					</li>
+					<li class="dropdown" data-active='category' data-load='json/category-detail-10.json'>
+						<div class="dropdown-toggle">
+							<a href="###" target="_blank" class="dropdown-link">手机</a>、<a href="###" target="_blank" class="dropdown-link">运营商</a>、<a href="###" target="_blank" class="dropdown-link">数码</a>
+							<i class="dropdown-arrow">&gt;</i>
+						</div>
+						<div class="dropdown-layer">
+							<div class="dropdown-loading"></div>
+						</div>
+					</li>
+					<li class="dropdown" data-active='category' data-load='json/category-detail-11.json'>
+						<div class="dropdown-toggle">
+							<a href="###" target="_blank" class="dropdown-link">家用电器</a>
+							<i class="dropdown-arrow">&gt;</i>
+						</div>
+						<div class="dropdown-layer">
+							<div class="dropdown-loading"></div>
+						</div>
+					</li>
+					<li class="dropdown" data-active='category' data-load='json/category-detail-12.json'>
+						<div class="dropdown-toggle">
+							<a href="###" target="_blank" class="dropdown-link">手机</a>、<a href="###" target="_blank" class="dropdown-link">运营商</a>、<a href="###" target="_blank" class="dropdown-link">数码</a>
+							<i class="dropdown-arrow">&gt;</i>
+						</div>
+						<div class="dropdown-layer">
+							<div class="dropdown-loading"></div>
+						</div>
+					</li>
+					<li class="dropdown" data-active='category' data-load='json/category-detail-13.json'>
+						<div class="dropdown-toggle">
+							<a href="###" target="_blank" class="dropdown-link">家用电器</a>
+							<i class="dropdown-arrow">&gt;</i>
+						</div>
+						<div class="dropdown-layer">
+							<div class="dropdown-loading"></div>
+						</div>
+					</li>
+					<li class="dropdown" data-active='category' data-load='json/category-detail-14.json'>
+						<div class="dropdown-toggle">
+							<a href="###" target="_blank" class="dropdown-link">手机</a>、<a href="###" target="_blank" class="dropdown-link">运营商</a>、<a href="###" target="_blank" class="dropdown-link">数码</a>
+							<i class="dropdown-arrow">&gt;</i>
+						</div>
+						<div class="dropdown-layer">
+							<div class="dropdown-loading"></div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="slider fl" id="focus-slider">
+				<div class="slider-container">
+					<div class="slider-item">
+						<a href="###" target="_blank"><img src="img/focus-slider/1.png" data-src="img/focus-slider/1.png" alt="" class="slider-img"><!-- <img src="img/focus-slider/loading.gif" data-src="img/focus-slider/1.png" alt="" class="slider-img"> --></a>
+					</div>
+					<div class="slider-item">
+						<a href="###" target="_blank"><!-- <img src="img/focus-slider/2.png" data-src="../img/focus-slider/2.png" alt="" class="slider-img"> --><img src="img/focus-slider/loading.gif" data-src="img/focus-slider/2.png" alt="" class="slider-img"></a>
+					</div>
+					<div class="slider-item">
+						<a href="###" target="_blank"><!-- <img src="img/focus-slider/3.png" data-src="../img/focus-slider/3.png" alt="" class="slider-img"> --><img src="img/focus-slider/loading.gif" data-src="img/focus-slider/3.png" alt="" class="slider-img"></a>
+					</div>
+					<div class="slider-item">
+						<a href="###" target="_blank"><!-- <img src="img/focus-slider/4.png" data-src="../img/focus-slider/4.png" alt="" class="slider-img"> --><img src="img/focus-slider/loading.gif" data-src="img/focus-slider/4.png" alt="" class="slider-img"></a>
+					</div>
+				</div>
+				<ol class="slider-indicator-wrap">
+					<li class="slider-indicator fl text-hidden">1</li>
+					<li class="slider-indicator fl text-hidden">2</li>
+					<li class="slider-indicator fl text-hidden">3</li>
+					<li class="slider-indicator fl text-hidden">4</li>
+				</ol>
+				<a href="javascript:;" class="slider-control slider-control-left">&lt;</a>
+				<a href="javascript:;" class="slider-control slider-control-right">&gt;</a>
+			</div>
+			<div class="focus-sidebar fr">
+				<div class="focus-news">
+					<div class="focus-news-header">
+						<h2 class="focus-news-header-title fl">慕快报</h2>
+						<a class="link fr" href="#" target="_blank">更多&gt;</a>
+					</div>
+					<div class="focus-news-body">
+						<p class="text-ellipsis"><a href="#" target="_blank" class="link"><strong>[特惠]</strong> 精选图书每满150减50</a></p>
+						<p class="text-ellipsis"><a href="#" target="_blank" class="link"><strong>[公告]</strong> 精选图书每满150减50满150减满150减满150减</a></p>
+						<p class="text-ellipsis"><a href="#" target="_blank" class="link"><strong>[特惠]</strong> 精选图书每满150减50</a></p>
+						<p class="text-ellipsis"><a href="#" target="_blank" class="link"><strong>[公告]</strong> 精选图书每满150减50满150减满150减满150减</a></p>
+						<p class="text-ellipsis"><a href="#" target="_blank" class="link"><strong>[特惠]</strong> 精选图书每满150减50</a></p>
+					</div>
+				</div>
+				<div class="focus-service cf">
+					<a href="#" target="_blank" class="focus-service-item fl">
+					<i class="icon icon-shenghuohuafeichongzhi"></i>
+					<span class="focus-service-text">话费</span>	
+					</a>
+					<a href="#" target="_blank" class="focus-service-item fl">
+					<i class="icon icon-jipiao"></i>
+					<span class="focus-service-text">机票</span>	
+					</a>
+					<a href="#" target="_blank" class="focus-service-item fl">
+					<i class="icon icon-dianying"></i>
+					<span class="focus-service-text">电影票</span>	
+					</a>
+					<a href="#" target="_blank" class="focus-service-item fl">
+					<i class="icon icon-youxi"></i>
+					<span class="focus-service-text">游戏</span>	
+					</a>
+					<a href="#" target="_blank" class="focus-service-item fl">
+					<i class="icon icon-shenghuohuafeichongzhi"></i>
+					<span class="focus-service-text">彩票</span>	
+					</a>
+					<a href="#" target="_blank" class="focus-service-item fl">
+					<i class="icon icon-jiayouqia"></i>
+					<span class="focus-service-text">加油卡</span>	
+					</a>
+					<a href="#" target="_blank" class="focus-service-item fl">
+					<i class="icon icon-guojijiudian"></i>
+					<span class="focus-service-text">酒店</span>	
+					</a>
+					<a href="#" target="_blank" class="focus-service-item fl">
+					<i class="icon icon-huochepiao"></i>
+					<span class="focus-service-text">火车票</span>	
+					</a>
+					<a href="#" target="_blank" class="focus-service-item fl">
+					<i class="icon icon-woyaozhongchou"></i>
+					<span class="focus-service-text">众筹</span>	
+					</a>
+					<a href="#" target="_blank" class="focus-service-item fl">
+					<i class="icon icon-qiandai"></i>
+					<span class="focus-service-text">理财</span>	
+					</a>
+					<a href="#" target="_blank" class="focus-service-item fl">
+					<i class="icon icon-ipad"></i>
+					<span class="focus-service-text">礼品卡</span>	
+					</a>
+					<a href="#" target="_blank" class="focus-service-item fl">
+					<i class="icon icon-jingdongbaitiao"></i>
+					<span class="focus-service-text">白条</span>	
+					</a>
+				</div>
+				<div class="focus-ad"></div>
+			</div>
+		</div>
+	</div>
+	<div class="todays">
+		<div class="container">
+			<div class="slider" id="todays-slider">
+				<div class="slider-container">
+					<div class="slider-item" id="s1">
+						<a href="###" target="_blank" class="fl"><img src="img/todays-slider/1.png" data-src="img/todays-slider/1.png" alt="" class="todays-img"/></a>
+						<a href="###" target="_blank" class="fl"><img src="img/todays-slider/2.png" data-src="img/todays-slider/2.png" alt="" class="todays-img"/></a>
+						<a href="###" target="_blank" class="fl"><img src="img/todays-slider/3.png" data-src="img/todays-slider/3.png" alt="" class="todays-img"/></a>
+						<a href="###" target="_blank" class="fl"><img src="img/todays-slider/4.png" data-src="img/todays-slider/4.png" alt="" class="todays-img"/></a>
+						<a href="###" target="_blank" class="fl"><img src="img/todays-slider/5.png" data-src="img/todays-slider/9.png" alt="" class="todays-img"/></a>
+					</div>
+					<div class="slider-item" id="s2">
+						<a href="###" target="_blank" class="fl"><img src="img/todays-slider/loading.gif" data-src="img/todays-slider/6.png" alt="" class="todays-img"/></a>
+						<a href="###" target="_blank" class="fl"><img src="img/todays-slider/loading.gif" data-src="img/todays-slider/7.png" alt="" class="todays-img"/></a>
+						<a href="###" target="_blank" class="fl"><img src="img/todays-slider/loading.gif" data-src="img/todays-slider/8.png" alt="" class="todays-img"/></a>
+						<a href="###" target="_blank" class="fl"><img src="img/todays-slider/loading.gif" data-src="img/todays-slider/9.png" alt="" class="todays-img"/></a>
+						<a href="###" target="_blank" class="fl"><img src="img/todays-slider/loading.gif" data-src="img/todays-slider/10.png" alt="" class="todays-img"/></a>
+					</div>
+					<div class="slider-item" id="s3">
+						<a href="###" target="_blank" class="fl"><img src="img/todays-slider/loading.gif" data-src="img/todays-slider/11.png" alt="" class="todays-img"/></a>
+						<a href="###" target="_blank" class="fl"><img src="img/todays-slider/loading.gif" data-src="img/todays-slider/3.png" alt="" class="todays-img"/></a>
+						<a href="###" target="_blank" class="fl"><img src="img/todays-slider/loading.gif" data-src="img/todays-slider/5.png" alt="" class="todays-img"/></a>
+						<a href="###" target="_blank" class="fl"><img src="img/todays-slider/loading.gif" data-src="img/todays-slider/7.png" alt="" class="todays-img"/></a>
+						<a href="###" target="_blank" class="fl"><img src="img/todays-slider/loading.gif" data-src="img/todays-slider/9.png" alt="" class="todays-img"/></a>
+					</div>
+				</div>
+				<a href="javascript:;" class="slider-control slider-control-left">&lt;</a>
+				<a href="javascript:;" class="slider-control slider-control-right">&gt;</a>
+			</div>
+		</div>
+	</div>
+	<!-- 1楼 -->
+	<div class="floor">
+		<div class="container">
+			<img src="img/floor-loading.gif" alt="">
+		</div>
+	</div>
+	<!-- 2楼 -->
+	<div class="floor">
+		<div class="container">
+			<img src="img/floor-loading.gif" alt="">
+		</div>
+	</div>
+	<!-- 3楼 -->
+	<div class="floor">
+		<div class="container">
+			<img src="img/floor-loading.gif" alt="">
+		</div>
+	</div>
+	<!-- 4楼 -->
+	<div class="floor">
+		<div class="container">
+			<img src="img/floor-loading.gif" alt="">
+		</div>
+	</div>
+	<!-- 5楼 -->
+	<div class="floor">
+		<div class="container">
+			<img src="img/floor-loading.gif" alt="">
+		</div>
+	</div>
+
+	<!-- elevator电梯 -->
+	<div id="elevator" class="elevator container">
+		<a href="javascript:;" class="elevator-item">
+			<span class="elevator-num">F1</span>
+			<span class="elevator-text">服饰</span>
+		</a>
+		<a href="javascript:;" class="elevator-item">
+			<span class="elevator-num">F2</span>
+			<span class="elevator-text">美妆</span>
+		</a>
+		<a href="javascript:;" class="elevator-item">
+			<span class="elevator-num">F3</span>
+			<span class="elevator-text">手机</span>
+		</a>
+		<a href="javascript:;" class="elevator-item">
+			<span class="elevator-num">F4</span>
+			<span class="elevator-text">家电</span>
+		</a>
+		<a href="javascript:;" class="elevator-item">
+			<span class="elevator-num">F5</span>
+			<span class="elevator-text">数码</span>
+		</a>
+	</div>
+
+	<!-- toolbar侧边栏 -->
+	<div class="toolbar">
+		<a href="javascript:;" class="toolbar-item">
+			<i class="icon toolbar-icon icon-huiyuan"></i>
+			<span class="toolbar-text transition">会员</span>
+		</a>
+		<a href="javascript:;" class="toolbar-item">
+			<i class="icon toolbar-icon icon-gouwuche"></i>
+			<span class="toolbar-text transition">购物车</span>
+		</a>
+		<a href="javascript:;" class="toolbar-item">
+			<i class="icon toolbar-icon icon-icon_collect"></i>
+			<span class="toolbar-text transition">我的关注</span>
+		</a>
+		<a href="javascript:;" class="toolbar-item">
+			<i class="icon toolbar-icon icon-xiaoxi"></i>
+			<span class="toolbar-text transition">我的消息</span>
+		</a>
+		<a href="javascript:;" class="toolbar-item backToTop">
+			<i class="icon toolbar-icon icon-xiala"></i>
+			<span class="toolbar-text transition">回到顶部</span>
+		</a>
+	</div>
+	<!-- 消费者 -->
+	<div class="xiaofeizhe">
+		<div class="container">
+			<div class="xiaofeizhe-item fl">
+				<h2 class="xiaofeizhe-title">消费者保障</h2>
+				<span class="neirong-item"><a href="#" class="link">快捷支付</a></span>
+				<span class="neirong-item"><a href="#" class="link">理财通道</a></span>
+				<span class="neirong-item"><a href="#" class="link">宝物天地</a></span>
+				<span class="neirong-item"><a href="#" class="link">更过自助</a></span>
+			</div>
+			<div class="xiaofeizhe-item fl">
+				<h2 class="xiaofeizhe-title">消费者保障</h2>
+				<span class="neirong-item"><a href="#" class="link">快捷支付</a></span>
+				<span class="neirong-item"><a href="#" class="link">理财通道</a></span>
+				<span class="neirong-item"><a href="#" class="link">宝物天地</a></span>
+				<span class="neirong-item"><a href="#" class="link">更过自助</a></span>
+			</div>
+			<div class="xiaofeizhe-item fl">
+				<h2 class="xiaofeizhe-title">消费者保障</h2>
+				<span class="neirong-item"><a href="#" class="link">快捷支付</a></span>
+				<span class="neirong-item"><a href="#" class="link">理财通道</a></span>
+				<span class="neirong-item"><a href="#" class="link">宝物天地</a></span>
+				<span class="neirong-item"><a href="#" class="link">更过自助</a></span>
+			</div>
+			<div class="xiaofeizhe-item fl">
+				<h2 class="xiaofeizhe-title">消费者保障</h2>
+				<span class="neirong-item"><a href="#" class="link">快捷支付</a></span>
+				<span class="neirong-item"><a href="#" class="link">理财通道</a></span>
+				<span class="neirong-item"><a href="#" class="link">24小时免费热线电话</a></span>
+				<span class="neirong-item"><a href="#" class="link">更过自助</a></span>
+			</div>
+		</div>
+	</div>
+	<!-- 底部footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="lianjie">
+				<a href="#" class="link">关于我们</a>
+				<a href="#" class="link">合作伙伴</a>
+				<a href="#" class="link">营销中心</a>
+				<a href="#" class="link">行为举报</a>
+				<a href="#" class="link">联系客服</a>
+				<a href="#" class="link">开放平台</a>
+				<a href="#" class="link">诚聘英才</a>
+				<a href="#" class="link">风险评估</a>
+				<a href="#" class="link">智慧风暴</a>
+				<a href="#" class="link">交易中心</a>
+				<a href="#" class="link">知识产权</a>
+			</div>
+			<p>©2017 incloument AllRights Revent</p>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+		window.jQuery||document.write('<script src="js/jquery-3.3.1.min.js"><\/script>')
+	</script>
+	<script type="text/javascript" src="js/dropdown.js"></script>
+	<script type="text/javascript" src="js/transition.js"></script>
+	<script type="text/javascript" src="js/showHide.js"></script>
+	<script type="text/javascript" src="js/search.js"></script>
+	<script type="text/javascript" src="js/move.js"></script>
+	<script type="text/javascript" src="js/slide.js"></script>
+	<script type="text/javascript" src="js/tab.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script>
+		
+	</script>
+	<!-- <script type="text/javascript" src="js/bootstrap.min.js"></script> -->
+</body>
+</html>

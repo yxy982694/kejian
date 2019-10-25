@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2-3拖拽练习</title>
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding: 0;
+		}
+		#main{
+			width:200px;
+			height:200px;
+			background: yellow;
+			position: absolute;
+			top:-10px;
+			left:100px;
+			-webkit-user-select: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		我能被拖动
+	</div>
+<script>
+	var windowW=window.innerWidth;
+	var windowH=window.innerHeight;
+	// alert('宽度:'+windowW+','+'高度:'+windowH);
+	var mainW=parseInt($('#main').css('width'));
+	var mainH=parseInt($('#main').css('height'));
+	// alert('宽度:'+mainW);
+	var isMouseDown=false;
+	var lastPoint={};
+	$('#main').on('mousedown',function(e){
+		isMouseDown=true;
+		lastPoint.x=e.clientX;
+		lastPoint.y=e.clientY;
+		// alert(lastPoint.x);
+	}).on('mousemove',function(e){
+		if(isMouseDown){
+			var main=$('#main');
+			var targetX=parseInt(main.css('left'))+e.clientX-lastPoint.x;
+			var targetY=parseInt(main.css('top'))+e.clientY-lastPoint.y;
+			var zuoz=targetX+mainW;
+			var dingz=targetY+mainH;
+			if((zuoz>=windowW)||(dingz>=windowH)){
+				var zuo=windowX-mainW;
+				var ding=windowH-mainH;
+				main.css('left',zuo+'px');
+				main.css('top',ding+'px');
+			}else if(targetX<=0||targetY<=0){
+				main.css('left','0px');
+				main.css('top','0px');
+			}
+			else{
+				main.css('left',targetX+'px');
+				main.css('top',targetY+'px');
+			}
+				main.css('left',targetX+'px');
+				main.css('top',targetY+'px');
+			lastPoint.x=e.clientX;
+			lastPoint.y=e.clientY;
+		}
+	}).on('mouseup',function(){
+	isMouseDown=false
+	lastPoint={};
+})
+</script>
+</body>
+</html>

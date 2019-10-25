@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建indexDB数据库和表</title>
+</head>
+<body>
+	<button id="btn">create DB and 'table'</button>
+	<script>
+		var db=window.indexedDB||window.mozIndexedDB||window.webkitIndexedDB||window.msIndexedDB;
+		var request,result,version=23,dbName='testDB',osName='objectStore';
+		function createDB(){
+			request=db.open(dbName,version);
+			request.onsuccess=function(){
+				db=request.result;
+				console.log('数据库创建成功');
+			}
+			request.onerror=function(e){
+				console.log(e.currentTarget.error.message);
+			}
+			request.onupgradeneeded=function(e){
+				var store=null;
+				db=e.target.result;
+				if(!db.objectStoreNames.contains(osName)){
+					store=db.createObjectStore(osName,{keyPath:'id'});
+					//创建id索引
+					store.createIndex('idIndex','id',{unique:true});
+					//创建关键词索引
+					store.createIndex('categoryIndex','category',{multiEntry:true});	
+					store.createIndex('hpIndex', 'hp', {unique: false});
+
+					console.log('数据表创建成功');
+				}
+			}
+		}
+		// var btn=document.querySelector("#btn");
+		// btn.addEventListener('click',createDB);
+		createDB();
+		var data=[{
+			name:'史莱姆',
+			id:'001',
+			hp:3,
+			category:['怪物','容易逃跑']
+		},{
+			name:'小蝙蝠',
+			id:'002',
+			hp:5,
+			category:['怪物','飞行']
+		},{
+			name:'小恶魔',
+			id:'003',
+			hp:9,
+			category:['怪物','恶魔']
+		}]
+	function addData(){
+		var transaction=db.transaction(osName,'readwrite');
+		var store=transaction.objectStore(osName);
+		data.map(function(o){
+			store.add(o);
+		});
+	}
+	function getData(id){
+		var transaction=db.transaction(osName,'readwrite');
+		var store=transaction.objectStore(osName);		
+		var request=store.get(id);
+		request.onsuccess=function(){
+			console.log(request.result);
+		}
+	}
+	function getAllData(){
+		var transaction=db.transaction(osName,'readwrite');
+		var store=transaction.objectStore(osName);		
+		var request=store.getAll();
+		request.onsuccess=function(){
+			console.log(request.result);
+		}
+	}
+	function updateData(id){
+		var transaction=db.transaction(osName,'readwrite');
+		var store=transaction.objectStore(osName);
+		var request=store.get(id);
+		request.onsuccess=function(){
+			request=store.put({
+				name:'小企鹅',
+				id:id,
+				hp:5
+			});
+		}
+	}
+	function deleteData(id){
+		var transaction=db.transaction(osName,'readwrite');
+		var store=transaction.objectStore(osName);
+		var request=store.delete(id);		
+		request.onsuccess=function(){
+			console.log("删除成功！！");
+		}
+
+	}
+	function clear(){
+		var transaction=db.transaction(osName,'readwrite');
+		var store=transaction.objectStore(osName);		
+		var request=store.clear();		
+		request.onsuccess=function(){
+			console.log("清除成功！！");
+		}
+	}
+	//通过游标得到数据
+	function useCursorGetData(){
+		var transaction=db.transaction(osName,'readwrite');
+		var store=transaction.objectStore(osName);
+		// request=store.openCursor(IDBKeyRange.bound('002','003'),'prevunique');
+		request=store.openCursor(null,'pvev');
+		request.onsuccess=function(){
+			var cursor=request.result;
+			if(cursor){
+				console.log(cursor.value);
+				cursor.continue();
+			}
+		}
+	}
+	//通过索引得到数据
+	function useIndexGetData(){
+		var transaction=db.transaction(osName,'readwrite');
+		var store=transaction.objectStore(osName);
+		var index=store.index('categoryIndex');
+		var request=index.getAll('飞行');
+		request.onsuccess=function(){
+			console.log(request.result);
+		}
+	}
+	//通过索引和游标操作数据
+	function useIndexAndCursorOperateData(){
+		var transaction=db.transaction(osName,'readwrite');
+		var store=transaction.objectStore(osName);
+		// var index=store.index('categoryIndex');
+		var index=store.index('hpIndex');
+		// var request=index.openCursor(IDBKeyRange.upperBound(5));
+		var request=index.openCursor(IDBKeyRange.bound(5,10));
+		request.onsuccess=function(){
+			var cursor=request.result;
+			var value=null;
+			if(cursor){
+				value=cursor.value;
+				value.hp+=20;
+				cursor.update(value);
+				// if(cursor.value.hp==='002'){
+					// cursor.update({
+					// 	name:'小妖精',
+					// 	id:'002',
+					// 	hp:19,
+					// 	category:['怪物','飞行']
+					// 	});
+					// cursor.delete().onsuccess=function(){
+					// 	console.log('删除成功！！');
+
+				// }	
+
+				console.log(cursor.value);
+				cursor.continue();
+			}
+			
+			}
+		}
+	</script>
+</body>
+</html>

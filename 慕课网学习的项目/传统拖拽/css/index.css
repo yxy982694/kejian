@@ -1,0 +1,22 @@
+@charset="UTF-8";
+*{
+	margin:0;
+	padding:0;
+}
+.container{
+	width:600px;
+	height:500px;
+	background:#eee;
+	position: absolute;
+	top:100px;
+	left:100px;
+}
+.container h3{
+	height:20%;
+	line-height:60px;
+	text-align:center;
+	background:#abcdef;
+}
+.container h3:hover{
+	cursor:move;	
+}

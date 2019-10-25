@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>白云蓝天</title>
+	<style type="text/css">
+	/*通配符*/
+	*{margin:0;padding:0;border:none;}
+	.container{
+		height:100vh;
+		width: 100%;
+		margin:auto;
+	}
+	/*蓝天*/
+	.lantian{
+		height:60%;
+		background-image:linear-gradient(rgb(196, 228, 253),transparent);
+		position:relative;
+				overflow:hidden;
+	}
+	/*草地*/
+	.caodi{
+		height:40%;
+		background-image:linear-gradient(0deg,rgb(148, 190, 89),transparent);
+		position: relative;
+	}
+	/*草地中的小白兔*/
+	.caodi>img{
+		position: absolute;
+		bottom: 50px;
+		right: 200px;
+		width: 200px;
+		height: 200px;
+	}
+	/*云朵的圆形*/
+	.container>.lantian>div[class*="yunduo"]{
+		width:50px;
+		height: 50px;
+		background:#fff;
+		border-radius:50%;
+		position:absolute;
+		right:-100px;
+
+	}
+	/*云朵的方形*/
+	.container>.lantian>div[class*="yunduo"]::before{
+		width:75px;
+		height:25px;
+		background:#fff;
+		content:"";
+		display:block;
+		position:absolute;
+		top:50%;
+		left:-20px;
+		border-radius:20px;
+	}
+	.container>.lantian>div[class*="yunduo"]::after{
+		width:40px;
+		height:20px;
+		background:#fff;
+		content:"";
+		display:block;
+		position:absolute;
+		top:50%;
+		left:-20px;
+		border-radius:10px;
+		transform:rotate(60deg);
+	}
+	/*云朵123的透明度*/
+	.yunduo1,.yunduo2,.yunduo3{
+		opacity:0.8;
+		z-index:1;
+		top:0;
+	}
+	/*云朵1的动画*/
+	.yunduo1{
+		animation:yd 10s linear infinite;
+	}
+	/*云朵2的动画*/
+	.yunduo2{
+		animation:yd2 6s linear infinite 3s;
+	}
+	/*云朵3的动画*/
+	.yunduo3{
+		top:120px;
+		animation:yd 8s linear infinite;
+	}
+	/*云朵4的动画，最大的云*/
+	.yunduo4{
+		top:48px;
+		transform:scale(1.2);
+		animation:yd4 6s linear infinite;
+	}
+	/*云朵5的动画，最小的云*/
+	.yunduo5{
+		top:120px;
+		opacity:0.7;
+		transform:scale(.8);
+		animation:yd5 14s linear infinite 4s;
+	}
+	@keyframes yd{
+		from{right:-100px;}
+		to{right:120%;}
+	}
+	@keyframes yd2{
+		from{right:100px;}
+		to{right:120%;}
+	}
+	@keyframes yd4{
+		from{right:-100px;transform:scale(1.2);}
+		to{right:120%;transform:scale(1.2);}
+	}
+	@keyframes yd5{
+		from{right:-100px;transform:scale(.8);}
+		to{right:120%;transform:scale(.8);}
+	}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="lantian">
+			<div class="yunduo1"></div>
+			<div class="yunduo2"></div>
+			<div class="yunduo3"></div>
+			<div class="yunduo4"></div>
+			<div class="yunduo5"></div>
+		</div>
+		<div class="caodi">
+			<img src="rabbit.png" alt="">
+		</div>
+	</div>
+</body>
+</html>

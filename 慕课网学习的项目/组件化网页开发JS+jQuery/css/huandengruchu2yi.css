@@ -1,0 +1,70 @@
+.slider{
+	width:728px;
+	height:504px;
+	position:relative;
+	overflow:hidden;
+	margin-left:100px;
+	margin-top:50px;
+}
+.slider-indicator-wrap{
+	position:absolute;
+	width:100%;
+	bottom:24px;
+	left:50%;
+	margin-left:-36px;
+}
+.slider-indicator{
+	width:8px;
+	height:8px;
+	border-radius:8px;
+	background-color:#313a43;
+	margin-right:12px;
+	cursor:pointer;
+}
+.slider-indicator-active{
+	background-color:#f7f8f9;
+	border:2px solid #858b92;
+	position:relative;
+	top:-2px;
+}
+.slider-control{
+	width:28px;
+	height:62px;
+	line-height:62px;
+	text-align:center;
+	background-color:#000;
+	opacity:.6;
+	color:#fff;
+	font-size:22px;
+	font-weight:simsun;
+	position:absolute;
+	top:50%;
+	margin-top:-31px;
+	display:none;
+}
+.slider-control-left{
+	left:0;
+}
+.slider-control-right{
+	right:0;
+}
+/*不同的部分*/
+/*淡入淡出fade*/
+.slider-fade .slider-item{
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	display:none;
+}
+/*滑动 slide*/
+.slider-slide .slider-item{
+	position:absolute;
+	left:728px;
+	top:0;
+	width:100%;
+	height:100%;
+	border:2px solid black;
+	display:block !important;
+}

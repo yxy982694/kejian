@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>html5文件上传</title>
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<style type="text/css">
+	*{
+		margin:0;
+		padding:0;
+	}
+	.container{
+		width:400px;
+		height:300px;
+		margin:20px auto;
+		border:2px dashed black;
+		box-sizing:border-box;
+		overflow:auto;
+	}
+	.containerDrop{
+		border:2px dashed blue;
+	}
+	.tips{
+		line-height:290px;
+		text-align:center;
+	}
+	.file{
+		width:100%;
+		height:40px;
+		display:block;
+		position: relative;
+		list-style-type: none;
+		margin-bottom:5px;
+	}
+	.text{
+		line-height:40px;
+		font-size:20px;
+		position: relative;
+		z-index: 2;
+		padding-left:20px;
+	}
+	.progress{
+		position: absolute;
+		left:0px;
+		top:0px;
+		width:0%;
+		height: 100%;
+		background:#b0e24b;
+	}
+	.loading,.right,.wrong{
+		display:inline-block;
+		width:30px;
+		height:30px;
+		vertical-align:middle;
+		padding-right:10px;
+	}
+	.loading{
+		background:url("img/loading.png") no-repeat;
+	}
+	.right{
+		background:url("img/right.png") no-repeat;
+	}
+	.wrong{
+		background:url("img/wrong.png") no-repeat;
+	}
+	.none{
+		display:none;
+	}
+	#template{
+		width:400px;
+		margin:0 auto;
+	}
+	</style>
+</head>
+<body>
+	<div id="container" class="container">
+		<div class="tips" id="tips">拖动文件至此，即可上传文件
+		</div>
+		<ul id="files" class="none">
+		</ul>
+	</div>
+	<div id="template" class="none">
+		<li class="file">
+				<span class="text">
+					<span class="loading"></span>
+					<span class="name"></span>
+				</span>
+				<div class="progress"></div>
+			</li>
+	</div>
+	<script>
+	$(function(){
+		$('#container').on('dragenter',function(e){
+			if(!$("#tips").hasClass('none')){
+				$("#tips").text("松开鼠标，即可上传");
+			}else{
+				$("#tips").removeClass("none");
+				$('#files').addClass('none');
+			}
+			$("#container").addClass('containerDrop');
+		}).on('drop',function(e){
+			e.preventDefault();
+			if(!$("#tips").hasClass('none')){
+				$("#tips").addClass("none");
+				$('#files').removeClass('none');
+				$("#container").removeClass('containerDrop');
+			}
+			var files=e.originalEvent.dataTransfer.files;
+			for(var i=0;i<files.length;i++){
+				var file=files[i];
+				console.log(file);
+				var li=$('#template li').clone();
+				var icon=li.find('.loading');
+				var name=li.find('.name');
+				var progress=li.find(".progress");
+				name.text(file.name);
+				$('#files').append(li);
+				// simuUpload(file,progress,icon);
+				var upload=function(file,progressEle,iconEle){
+					var fd=new FormData();
+					fd.append('pic',file);
+					var xhr=new XMLHttpRequest();
+					xhr.open('POST','http://localhost/test/upload.php',true);
+					xhr.upload.ongrpgress=function(e){
+						percent=100*e.loaded/e.total;
+						progressEle.css('width',percent+"%");
+					}
+					xhr.onload=function(){
+						if(xhr.status===200){
+							progressEle.css('width','0px');
+							iconEle.removeClass('loading').addClass('right');
+						}else{
+							iconEle.removeClass('loading').addClass('wrong');
+						}
+					}
+					xhr.send(fd);
+				}
+			}
+		}).on('dragleave',function(e){
+			$("#tips").text("拖动文件至此，即可上传文件");
+			$("#container").removeClass('containerDrop');
+		}).on('dragover',function(e){
+			e.preventDefault();
+			$("#tips").text("松开鼠标，即可上传");
+			$("#container").addClass('containerDrop');
+		});
+		// var simuUpload=function(file,progressEle,iconEle){
+		// 	var progress=0;
+		// 	var timer=setInterval(function(){
+		// 		progress=progress+Math.floor(Math.random()*3);
+		// 		if(progress<100){
+		// 			progressEle.css('width',progress+'%')
+		// 		}else{
+		// 			clearInterval(timer);
+		// 			progressEle.css('width','0px');
+		// 			iconEle.removeClass('loading');
+		// 			iconEle.addClass('right');
+		// 		}
+		// 	},100);
+		// }
+	})
+	</script>
+</body>
+</html>
